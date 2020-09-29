@@ -17,3 +17,5 @@ class Post extends Model
         return str::limit($this->content, 40);
     }
 }
+
+
