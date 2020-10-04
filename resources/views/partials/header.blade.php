@@ -5,8 +5,16 @@
         </div>
 
         <ul class="nav navbar-nav navbar-right">
-    
-            <li><a href="/subscribe">Subscribe</a></li>   
+            @if(Auth::user())
+                <span> <li><a href="/subscribe">Subscribe</a></li> </span>
+            
+                <span> <li> <a href="/logout">logout</a></li>  </span>
+            <li>
+            @else
+                <span> <li><a href="{{route('login')}}">login</a></li>  
+                <li><a href="{{route('register')}}">register</a></li>  </span>
+            @endif
+
         </ul>
     </div>
 </div>
