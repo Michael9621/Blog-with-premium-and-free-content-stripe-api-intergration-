@@ -6,13 +6,22 @@
 
         <ul class="nav navbar-nav navbar-right">
             @if(Auth::user())
-                <span> <li><a href="/subscribe">Subscribe</a></li> </span>
+                <span><a href="/subscribe">Subscribe</a></span>
             
-                <span> <li> <a href="/logout">logout</a></li>  </span>
+                <span> 
+                    <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                    </a> 
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </span>
             <li>
             @else
-                <span> <li><a href="{{route('login')}}">login</a></li>  
-                <li><a href="{{route('register')}}">register</a></li>  </span>
+                <span><a href="{{route('login')}}">login</a>  
+                <a href="{{route('register')}}">register</a></span>
             @endif
 
         </ul>

@@ -11,7 +11,8 @@ class SiteController extends Controller
         return view('pages.home')->with('posts', Post::all());
     }
 
-    public function showPost(){
-        return view('pages.post');
+    public function showPost($slug){
+        $post=Post::where('slug', $slug)->first();
+        return view('pages.post')->with('post',$post);
     }
 }
