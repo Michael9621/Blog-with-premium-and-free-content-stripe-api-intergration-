@@ -19,6 +19,9 @@ Route::get('/', 'SiteController@showHome');
 
 Auth::routes();
 
+Route::get('/subscribe','SubscriberController@showSubscribe');
+Route::post('/subscribe', 'SubscriberController@processSubscribe');
+
 
 Route::get('/{slug}', 'SiteController@showPost');
 
